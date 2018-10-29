@@ -50,6 +50,12 @@ Scalar length(const Vec & vec)
 	return pow(pow(vec[X], 2) + pow(vec[Y], 2) + pow(vec[Z], 2), 0.5);
 }
 
+Vec normalize(const Vec & vec)
+{
+	const Scalar LEN = length(vec);
+	return Vec{vec[X]/LEN, vec[Y]/LEN, vec[Z]/LEN};
+}
+
 int main() 
 {
 	Vec vec1{ 1, 2, 3 };
@@ -59,6 +65,7 @@ int main()
 	print(dot_product(vec1, vec2));
 	print(cross_product(vec1, vec2));
 	print(length(vec1));
+	print(normalize(vec1));
 
 	std::cin.get();
 }
