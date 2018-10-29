@@ -56,16 +56,22 @@ Vec normalize(const Vec & vec)
 	return Vec{vec[X]/LEN, vec[Y]/LEN, vec[Z]/LEN};
 }
 
+Scalar projection(const Vec & vec1, const Vec & vec2)
+{
+	return dot_product(vec1, vec2) / std::pow(length(vec1), 2);
+}
+
 int main() 
 {
-	Vec vec1{ 1, 2, 3 };
-	Vec vec2{ 4, 5, 6 };
+	Vec vec1{ 2, 1, 2 };
+	Vec vec2{ 4, 8, 2 };
 
 	print(add(vec1, vec2));
 	print(dot_product(vec1, vec2));
 	print(cross_product(vec1, vec2));
 	print(length(vec1));
 	print(normalize(vec1));
+	print(projection(vec1, vec2));
 
 	std::cin.get();
 }
