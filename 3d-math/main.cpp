@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using Vec = std::vector<double>;
 using Scalar = double;
@@ -43,6 +44,12 @@ Vec cross_product(const Vec & vec1, const Vec & vec2)
 				coeff(vec1[X], vec1[Y], vec2[X], vec2[Y]) };
 }
 
+Scalar length(const Vec & vec)
+{
+	using std::pow;
+	return pow(pow(vec[X], 2) + pow(vec[Y], 2) + pow(vec[Z], 2), 0.5);
+}
+
 int main() 
 {
 	Vec vec1{ 1, 2, 3 };
@@ -51,6 +58,7 @@ int main()
 	print(add(vec1, vec2));
 	print(dot_product(vec1, vec2));
 	print(cross_product(vec1, vec2));
+	print(length(vec1));
 
 	std::cin.get();
 }
